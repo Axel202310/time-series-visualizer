@@ -4,9 +4,11 @@ import matplotlib as mpl
 
 class DataCleaningTestCase(unittest.TestCase):
     def test_data_cleaning(self):
-        actual = int(time_series_visualizer.df.count(numeric_only=True))
-        expected = 1238
-        self.assertEqual(actual, expected, "Expected DataFrame count after cleaning to be 1238.")
+        # Obtener el DataFrame limpio utilizando la función correspondiente
+        df = time_series_visualizer.get_cleaned_data()
+        actual = df.shape[0]  # Número de filas en el DataFrame
+        expected = 1238  # Cambia este valor al número esperado tras limpieza
+        self.assertEqual(actual, expected)
 
 class LinePlotTestCase(unittest.TestCase):
     def setUp(self):
